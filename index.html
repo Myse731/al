@@ -3,29 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>학교 알림장</title>
+  <title>민세의 알림장</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
-    <h1>학교 알림장</h1>
-    <nav class="tab-bar">
-      <button id="tabClass" class="tab active">학급 알림장</button>
-      <button id="tabSchool" class="tab">학교 행사</button>
-    </nav>
-    <div id="classSelector" class="selector-row">
-      <select id="gradeSelect">
-        <option value="1">1학년</option>
-        <option value="2">2학년</option>
-        <option value="3">3학년</option>
-      </select>
-      <select id="classSelect">
-        <option value="1">1반</option>
-        <option value="2">2반</option>
-        <option value="3">3반</option>
-        <option value="4">4반</option>
-      </select>
-    </div>
+    <h1>👑 민세의 알림장 👑</h1>
+    <div style="font-size:.85rem;margin-top:-.3rem;opacity:.9">✨ 🌸 ✨</div>
     <div class="date-nav">
       <button id="prevDate">&larr;</button>
       <input type="text" id="datePicker" placeholder="YYYY-MM-DD">
@@ -34,21 +18,21 @@
   </header>
 
   <main>
+    <section id="assessmentSection">
+      <div class="section-title">📝 수행평가</div>
+      <div id="assessmentList"></div>
+      <button id="addAssessBtn" class="add-assess-btn">+ 수행평가 추가</button>
+    </section>
+
+    <hr class="divider">
+
     <div id="postList"></div>
 
+    <!-- 알림장 에디터 -->
     <div id="editorOverlay" class="overlay hidden">
       <div class="editor">
-        <h2 id="editorTitle">새 글 작성</h2>
+        <h2 id="editorTitle">알림장 작성</h2>
         <input type="hidden" id="editId">
-        <div class="editor-field">
-          <select id="editCategory">
-            <option value="prep">준비물</option>
-            <option value="homework">숙제</option>
-            <option value="notice">알림장</option>
-            <option value="lesson">수업내용</option>
-            <option value="general">기타</option>
-          </select>
-        </div>
         <div class="editor-field">
           <input type="text" id="editTitle" placeholder="제목">
         </div>
@@ -58,6 +42,27 @@
         <div class="editor-actions">
           <button id="saveBtn" class="btn-primary">저장</button>
           <button id="cancelBtn" class="btn-secondary">취소</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 수행평가 에디터 -->
+    <div id="assessOverlay" class="overlay hidden">
+      <div class="editor">
+        <h2 id="assessTitle">수행평가 추가</h2>
+        <input type="hidden" id="assessId">
+        <div class="editor-field">
+          <input type="text" id="assessName" placeholder="수행평가 이름 (예: 수학 3단원 평가)">
+        </div>
+        <div class="editor-field">
+          <input type="text" id="assessDate" placeholder="날짜 (YYYY-MM-DD)">
+        </div>
+        <div class="editor-field">
+          <textarea id="assessContent" placeholder="상세 내용 (선택사항)" rows="4"></textarea>
+        </div>
+        <div class="editor-actions">
+          <button id="saveAssessBtn" class="btn-primary">저장</button>
+          <button id="cancelAssessBtn" class="btn-secondary">취소</button>
         </div>
       </div>
     </div>
